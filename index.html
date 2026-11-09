@@ -23,9 +23,17 @@
 </script>
 <link rel="icon" type="image/png" href="img/favicon-dongu.png">
 <link rel="apple-touch-icon" href="img/favicon-dongu.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="preload" href="fonts/gloock-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Yazı tipleri siteden yüklenir (Gloock, Karla · SIL Open Font License) */
+@font-face{font-family:"Gloock";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/gloock-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Gloock";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/gloock-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Karla";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/karla-italik-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Karla";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/karla-italik-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Karla";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/karla-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Karla";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/karla-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
 <script>document.documentElement.classList.add("js");</script>
 <style>
 /* ================= Renkler ================= */
@@ -177,13 +185,16 @@ button,input,textarea{font:inherit;color:inherit}
 
 /* ================= Sunum ================= */
 .sunum{background:var(--band-b)}
-.sunum-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.sunum-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,4vw,3.5rem);align-items:center}
 .alinti{margin:0;padding:clamp(2.2rem,5vw,3.4rem) clamp(1.6rem,5vw,3.4rem);border-radius:28px;background:var(--surface);box-shadow:0 26px 50px -32px rgba(0,0,0,.35),0 0 0 1px var(--line)}
 .alinti blockquote{margin:0}
-.alinti blockquote p{margin:0 0 1.1rem;font-family:var(--f-display);font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.1}
+.alinti blockquote p{margin:0 0 1.1rem;font-family:var(--f-display);font-size:clamp(1.75rem,3.3vw,2.6rem);line-height:1.12;text-wrap:balance}
 .alinti figcaption{color:var(--ink-soft)}
 .sunum-kart{padding:clamp(1.6rem,3.5vw,2.6rem);border-radius:var(--radius);background:var(--paper);box-shadow:0 26px 50px -32px rgba(0,0,0,.35),0 0 0 1px var(--line)}
-.sunum-alt{margin:.6rem 0 1rem;font-family:var(--f-display);font-style:italic;font-size:1.3rem;color:var(--accent-2)}
+.sunum-alt{margin:.6rem 0 1.2rem;font-family:var(--f-display);font-style:italic;font-size:1.3rem;color:var(--accent-2)}
+.sunum-metin p{margin:0 0 1rem;color:var(--ink)}
+.sunum-metin .sunum-giris{font-size:1.14rem;line-height:1.55}
+.sunum-not{margin:1.4rem 0 1.4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink-soft)}
 @media (max-width:900px){.sunum-grid{grid-template-columns:minmax(0,1fr)}}
 
 /* ================= Yazılar ================= */
@@ -400,14 +411,20 @@ button,input,textarea{font:inherit;color:inherit}
     </div>
     <div class="wrap sunum-grid">
       <figure class="alinti">
-        <blockquote><p>“Kaygı, özgürlüğün baş dönmesidir.”</p></blockquote>
+        <blockquote><p>“Her kim ki doğru şekilde kaygılanmayı öğrenir, nihai olanı öğrenir.”</p></blockquote>
         <figcaption>— Søren Kierkegaard, <cite>Kaygı Kavramı</cite> (1844)</figcaption>
       </figure>
       <div class="sunum-kart">
         <p class="eyebrow">Sunum</p>
         <h2 id="sunum-title">Kaygının Anlamı</h2>
         <p class="sunum-alt">Psikanalizden varoluşçuluğa</p>
-        <p>Varoluşçu Akademi mezuniyet tezime dayanan bu sunumda kaygının psikanalitik kuramdan varoluşçu düşünceye nasıl anlaşıldığını anlatıyorum. Kaygıyı yalnızca giderilmesi gereken bir belirti olarak değil, bize bir şey söyleyen bir deneyim olarak ele alıyorum. Kurum ve topluluklardan gelen sunum davetlerine açığım.</p>
+        <div class="sunum-metin">
+          <p class="sunum-giris">Tam olarak tarif edemediğimiz, ilaçlar alarak yenmeye çalıştığımız, hatta bazen yaşamımızı felç eden kaygı, ya öznelliğimizin kaynağını oluşturuyorsa…</p>
+          <p>Ondan kaçtıkça kendini bize dayatıyor. Çelişkilerimizle birlikte kalabilme kapasitemizle birlikte değişip şekilleniyor.</p>
+          <p>Kaygı yalnızca içimizde olup biten bir şey değil. Sartre’ın <em>bakış</em> dediği şey, ötekinin dünyamızı nasıl kurduğunu anlatır. Kendimizle kurduğumuz ilişki başkalarının gözü altında belirlenir; kaygımızın neye benzediğini bir yandan toplumsal ilişkilerimiz tayin eder.</p>
+          <p>Kendimize yakınlaştığımızda açığa çıkan kaygıyla kalabildiğimizde özgürlüğümüzle karşılaşırız. Varoluşumuzun temeli buradadır.</p>
+        </div>
+        <p class="sunum-not">Varoluşçu Akademi mezuniyet tezime dayanan bu sunumda kaygının psikanalitik kuramdan varoluşçu düşünceye nasıl anlaşıldığını anlatıyorum. Kaygıyı yalnızca giderilmesi gereken bir belirti olarak değil, bize bir şey söyleyen bir deneyim olarak ele alıyorum. Kurum ve topluluklardan gelen sunum davetlerine açığım.</p>
         <a class="btn btn-primary" href="#randevu">Sunum daveti için yazın</a>
       </div>
     </div>
