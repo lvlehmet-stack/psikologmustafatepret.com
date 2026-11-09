@@ -40,9 +40,6 @@
   --dark:#141414; --dark-2:#1F1F1F; --dark-ink:#F5F4F0; --dark-soft:#BAB8B1;
   --frame-bg:#141414; --frame-pad:6px; --frame-shadow:0 30px 50px -30px rgba(20,20,20,.5); --mat:#FBFAF7;
   --plaque-bg:#FBFAF7; --plaque-ink:#141414; --plaque-kind:#1D3BD1; --plaque-edge:0 0 0 1px rgba(245,244,240,.25);
-  --p1a:#1D3BD1; --p1b:#E7EAFA; --p1c:#141414;
-  --p2a:#E4E2DC; --p2b:#1D3BD1; --p2c:#B8C2F0;
-  --p3a:#141414; --p3b:#F5F4F0; --p3c:#1D3BD1;
   --haze:0; --wa:#1D3BD1; --wa-ink:#FFFFFF;
   --radius:16px;
   --f-display:"Gloock","DM Serif Display",Georgia,"Times New Roman",serif;
@@ -140,7 +137,6 @@ button,input,textarea{font:inherit;color:inherit}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,4vw,4rem);align-items:center}
 .hero-panel{background:var(--surface);border-radius:32px;padding:clamp(1.6rem,3.4vw,2.8rem);box-shadow:0 22px 50px -30px rgba(0,0,0,.35),0 0 0 1px var(--line)}
 .hero h1{font-size:clamp(2.35rem,4.2vw + .6rem,4.2rem);line-height:1.04;margin-bottom:1.1rem}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 64%,var(--mark) 64%,var(--mark) 90%,transparent 90%)}
 .lead{font-size:clamp(1.08rem,1vw + .8rem,1.2rem);color:var(--ink-soft);max-width:46ch}
 .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
 .badges{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
@@ -161,15 +157,11 @@ button,input,textarea{font:inherit;color:inherit}
 
 /* ================= Yaklaşımlar ================= */
 .galeri{background:var(--band-a)}
-.eserler{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,3vw,2.6rem);align-items:start}
-.eser{display:flex;flex-direction:column;align-items:center}
-.tel{width:46%;height:auto;margin-bottom:-2px;color:var(--ink)}
-.eser .cerceve{width:100%}
-.eser svg.tablo{width:100%;height:auto}
-.etiket-plaka{margin-top:1.4rem;padding:.9rem 1.4rem;border-radius:3px;background:var(--paper);box-shadow:0 14px 26px -18px rgba(0,0,0,.45),0 0 0 1px var(--line);text-align:center}
-.etiket-plaka span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:.25rem}
+.eserler{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2.4vw,1.8rem);max-width:1000px;margin-inline:auto}
+.etiket-plaka{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,2.8vw,2.1rem) 1.4rem;border-radius:3px;background:var(--paper);box-shadow:0 14px 26px -18px rgba(0,0,0,.45),0 0 0 1px var(--line);text-align:center}
+.etiket-plaka span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:.35rem}
 .etiket-plaka h3{font-size:clamp(1.3rem,2vw,1.55rem)}
-@media (max-width:860px){.eserler{grid-template-columns:1fr;max-width:420px;margin-inline:auto;gap:2.6rem}}
+@media (max-width:860px){.eserler{grid-template-columns:minmax(0,1fr);max-width:420px;gap:1rem}}
 
 /* ================= Eğitim (koyu bant) ================= */
 .egitim{color:var(--dark-ink);background:var(--dark)}
@@ -286,13 +278,6 @@ button,input,textarea{font:inherit;color:inherit}
 <body>
 <a class="skip" href="#icerik">İçeriğe geç</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <filter id="yumusak" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.07" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="8" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="1.3"/></filter>
-    <filter id="doku" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.2 0"/></filter>
-  </defs>
-</svg>
-
 <header class="site-header">
   <div class="wrap header-bar">
     <a class="logo" href="#giris" aria-label="Psk. Mustafa Tepret, ana sayfa">
@@ -325,8 +310,8 @@ button,input,textarea{font:inherit;color:inherit}
     </div>
     <div class="wrap hero-grid">
       <div class="hero-panel">
-        <p class="eyebrow">Psikolog Mustafa Tepret</p>
-        <h1 id="hero-title">Kelimelerin yetmediği yerde <em>birlikte bakalım.</em></h1>
+        <p class="eyebrow">Psikolog</p>
+        <h1 id="hero-title">Mustafa Tepret</h1>
         <p class="lead">Yetişkinlerle bireysel psikoterapi: sanat psikoterapisi, varoluşçu ve psikanalitik yaklaşımlar. Yüz yüze ve online görüşmeler.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#randevu">Randevu talebi oluştur</a>
@@ -377,27 +362,9 @@ button,input,textarea{font:inherit;color:inherit}
         <h2 id="yaklasim-title">Çalıştığım yaklaşımlar</h2>
       </div>
       <ul class="eserler">
-        <li class="eser">
-          <svg class="tel" viewBox="0 0 120 34" aria-hidden="true"><path d="M16 34L60 5L104 34" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="60" cy="5" r="4" fill="currentColor"/></svg>
-          <div class="cerceve"><figure class="paspartu">
-            <svg class="tablo" viewBox="0 0 200 160" role="img" aria-label="Soyut renk alanı tablosu"><rect width="200" height="160" style="fill:var(--p1a)"/><g filter="url(#yumusak)"><rect x="18" y="16" width="164" height="62" rx="3" style="fill:var(--p1b)" opacity=".93"/><rect x="18" y="88" width="164" height="56" rx="3" style="fill:var(--p1c)"/></g><rect width="200" height="160" filter="url(#doku)"/></svg>
-          </figure></div>
-          <div class="etiket-plaka"><span>No. 1</span><h3>Sanat Psikoterapisi</h3></div>
-        </li>
-        <li class="eser">
-          <svg class="tel" viewBox="0 0 120 34" aria-hidden="true"><path d="M16 34L60 5L104 34" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="60" cy="5" r="4" fill="currentColor"/></svg>
-          <div class="cerceve"><figure class="paspartu">
-            <svg class="tablo" viewBox="0 0 200 160" role="img" aria-label="Soyut renk alanı tablosu"><rect width="200" height="160" style="fill:var(--p2a)"/><g filter="url(#yumusak)"><rect x="18" y="16" width="164" height="78" rx="3" style="fill:var(--p2b)" opacity=".93"/><rect x="18" y="104" width="164" height="40" rx="3" style="fill:var(--p2c)"/></g><rect width="200" height="160" filter="url(#doku)"/></svg>
-          </figure></div>
-          <div class="etiket-plaka"><span>No. 2</span><h3>Varoluşçu Psikoterapi</h3></div>
-        </li>
-        <li class="eser">
-          <svg class="tel" viewBox="0 0 120 34" aria-hidden="true"><path d="M16 34L60 5L104 34" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="60" cy="5" r="4" fill="currentColor"/></svg>
-          <div class="cerceve"><figure class="paspartu">
-            <svg class="tablo" viewBox="0 0 200 160" role="img" aria-label="Soyut renk alanı tablosu"><rect width="200" height="160" style="fill:var(--p3a)"/><g filter="url(#yumusak)"><rect x="18" y="16" width="164" height="40" rx="3" style="fill:var(--p3b)" opacity=".93"/><rect x="18" y="66" width="164" height="78" rx="3" style="fill:var(--p3c)"/></g><rect width="200" height="160" filter="url(#doku)"/></svg>
-          </figure></div>
-          <div class="etiket-plaka"><span>No. 3</span><h3>Psikanalitik Psikoterapi</h3></div>
-        </li>
+        <li class="etiket-plaka"><span>No. 1</span><h3>Sanat Psikoterapisi</h3></li>
+        <li class="etiket-plaka"><span>No. 2</span><h3>Varoluşçu Psikoterapi</h3></li>
+        <li class="etiket-plaka"><span>No. 3</span><h3>Psikanalitik Psikoterapi</h3></li>
       </ul>
     </div>
   </section>
